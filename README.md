@@ -1,81 +1,108 @@
 # 🚗 Mobility Economy Analysis with Python
 
-Proyecto de **Data Analytics** desarrollado con **Python** para analizar la relación entre la movilidad urbana y la productividad económica en ciudades latinoamericanas mediante datos de TomTom Traffic Index y OECD Cities.
+Proyecto de **Data Analytics** desarrollado con **Python** para estudiar la relación entre la movilidad urbana y la productividad económica en ciudades latinoamericanas.
+
+El análisis integra información del **TomTom Traffic Index** y **OECD Cities** para explorar patrones entre congestión vehicular, tiempos de viaje e indicadores económicos y demográficos.
 
 ---
 
 ## 📌 Resumen ejecutivo
 
-La movilidad urbana influye directamente en la calidad de vida, la productividad y la planificación de las ciudades. En este proyecto se integran dos fuentes de datos para estudiar cómo los niveles de congestión se relacionan con indicadores económicos como el PIB per cápita, el desempleo y la población.
+El proyecto parte de una pregunta de negocio: **¿cómo se relaciona la movilidad urbana con el contexto económico de las ciudades?**
 
-El análisis fue realizado en Python utilizando un enfoque de limpieza, transformación, exploración y visualización de datos.
+Para responderla, se limpiaron y transformaron dos datasets, se filtró la información de tráfico correspondiente a **2024**, se agregaron métricas por ciudad y posteriormente se integraron los datos con información económica y urbana.
 
-## 🎯 Problema de negocio
+## 🎯 Objetivo del proyecto
 
-Las ciudades necesitan priorizar inversiones en infraestructura de transporte, pero para ello es necesario comprender si existe una relación entre la congestión vehicular y el desempeño económico.
+Evaluar la relación entre la congestión vehicular y variables económicas de distintas ciudades, explorando preguntas como:
 
-Este proyecto busca responder preguntas como:
+- ¿Qué ciudades presentan mayores niveles de congestión?
+- ¿Cómo se comportan los indicadores de tráfico entre ciudades?
+- ¿Existe una relación clara entre PIB per cápita y congestión?
+- ¿Qué variables económicas y urbanas ayudan a complementar el análisis de movilidad?
 
-* ¿Qué ciudades presentan mayor congestión?
-* ¿Existe relación entre PIB per cápita y tráfico?
-* ¿Qué indicadores ayudan a comprender la movilidad urbana?
+## 📂 Fuentes de datos
+
+| Fuente | Información |
+|---|---|
+| **TomTom Traffic Index** | Congestión, retrasos, longitud y cantidad de embotellamientos y tiempos de viaje |
+| **OECD Cities** | PIB per cápita, desempleo, población y PM2.5 |
 
 ## 🛠️ Herramientas utilizadas
 
-| Herramienta      | Uso                       |
-| ---------------- | ------------------------- |
-| Python           | Análisis de datos         |
-| Pandas           | Limpieza y transformación |
-| NumPy            | Manipulación numérica     |
-| Matplotlib       | Visualización             |
-| Jupyter Notebook | Desarrollo del proyecto   |
-
-## 📂 Dataset
-
-Se combinaron dos conjuntos de datos:
-
-| Fuente               | Variables principales                        |
-| -------------------- | -------------------------------------------- |
-| TomTom Traffic Index | Congestión, retrasos y tiempos de viaje      |
-| OECD Cities          | PIB per cápita, desempleo, población y PM2.5 |
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
 
 ## 🔎 Metodología
 
-1. Exploración de datos.
-2. Limpieza y estandarización.
-3. Conversión de fechas y formatos.
-4. Agrupación por ciudad.
-5. Integración mediante `merge`.
-6. Análisis exploratorio.
-7. Visualización de relaciones.
-8. Exportación del dataset limpio.
+1. Carga y exploración de los datasets.
+2. Revisión de estructura, tipos de datos y valores ausentes.
+3. Estandarización de nombres de columnas en **snake_case**.
+4. Conversión de fechas y variables económicas a formatos adecuados.
+5. Creación de la variable de población total.
+6. Extracción del año y filtrado de los registros de tráfico de **2024**.
+7. Agregación de métricas de tráfico por ciudad.
+8. Integración de los datasets mediante `merge`.
+9. Análisis exploratorio y visualización de relaciones.
 
-## 📊 Indicadores analizados
+## 📊 Variables analizadas
 
-* Jams Delay
-* Traffic Index
-* Travel Time
-* City GDP per Capita
-* Unemployment
-* Population
-* PM2.5
+### Movilidad
+
+- `jams_delay`
+- `traffic_index_live`
+- `jams_length_kms`
+- `jams_count`
+- `traffic_index_week_ago`
+- `travel_time_live_per_10kms_mins`
+- `travel_time_hist_per_10kms_mins`
+- `mins_delay`
+
+### Economía y contexto urbano
+
+- `city_gdp_capita`
+- `unemployment_pct`
+- `population`
+- `pm25`
 
 ## 💡 Principales hallazgos
 
-* Ciudad de México presentó el mayor promedio de congestión.
-* No existe una relación lineal clara entre el PIB per cápita y la congestión.
-* La movilidad urbana responde a múltiples variables económicas y demográficas.
-* La integración de datasets permitió construir una visión comparativa entre ciudades.
+- **Ciudad de México** registró el mayor promedio de retraso por congestión entre las ciudades analizadas durante 2024.
+- El análisis exploratorio no mostró una relación lineal clara entre el PIB per cápita y la congestión.
+- La comparación entre ciudades muestra que la relación entre desempeño económico y movilidad no depende de una única variable.
+- La integración de datos de movilidad y economía permite construir una visión comparativa del contexto urbano.
+
+## 📈 Visualizaciones
+
+El notebook incluye visualizaciones orientadas a explorar:
+
+- Distribución de la congestión por ciudad.
+- Distribución del PIB per cápita.
+- Relación entre PIB per cápita y congestión.
+- Comportamiento de variables de movilidad.
 
 ## 🚀 Competencias demostradas
 
-* Python
-* Pandas
-* Data Cleaning
-* Data Merge
-* Exploratory Data Analysis
-* Data Visualization
-* Business Insights
+- Python para análisis de datos
+- Limpieza y transformación con Pandas
+- Manejo de fechas y tipos de datos
+- Integración de datasets mediante `merge`
+- Análisis exploratorio de datos (EDA)
+- Visualización con Matplotlib y Seaborn
+- Interpretación de relaciones entre variables
+- Comunicación de hallazgos
+
+## 🔗 Proyecto
+
+**Repositorio:**  
+https://github.com/catalinaduquediaz-svg/--Mobility---Economy-Analysis-with-Python
+
+**Notebook:**  
+https://github.com/catalinaduquediaz-svg/--Mobility---Economy-Analysis-with-Python/blob/main/dashboard/S5%20ladb_mobility_economy_project_student%20(1).ipynb
 
 ## 🎓 Contexto académico
 
